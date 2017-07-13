@@ -18,6 +18,9 @@ ENV DOTNET_VER "dotnet-dev-2.0.0-preview1-005977"
 #(apt-cache search dotnet-dev-2.0.0 | awk '{print $1}') | sh 
 RUN apt-get install ${DOTNET_VER} -y
 
+# install .net core sdk
+RUN apt-get install dotnet-dev-1.0.4 -y 
+
 # install mono-devel
 RUN apt-get install mono-devel mono-xbuild libmono-addins-* -y 
     
