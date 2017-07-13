@@ -28,6 +28,8 @@ RUN apt-get install mono-devel mono-xbuild libmono-addins-* -y
 RUN apt-get install npm -y && \
     npm install npm -g && \
     npm install bower gulp -g
+    
+RUN "ln -s /usr/bin/nodejs /usr/bin/node"     
 
 VOLUME /opt/buildagent/work
 VOLUME /opt/buildagent/logs
