@@ -28,7 +28,7 @@ RUN apt-get install mono-devel mono-xbuild libmono-addins-* -y
 RUN apt-get install nodejs -y
 
 # add node symlink 
-RUN ln -s /usr/bin/env/nodejs /usr/bin/env/node    
+# RUN ln -s /usr/bin/env/nodejs /usr/bin/env/node    
     
 # install web tools which are required for "dotnet publish" command
 RUN apt-get install npm -y && \
