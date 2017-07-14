@@ -24,12 +24,16 @@ RUN apt-get install dotnet-dev-1.0.4 -y
 # install mono-devel
 RUN apt-get install mono-devel mono-xbuild libmono-addins-* -y 
     
+# intall nodejs
+RUN apt-get install nodejs
+
+# add node symlink 
+RUN "ln -s /usr/bin/env/nodejs /usr/bin/env/node"        
+    
 # install web tools which are required for "dotnet publish" command
 RUN apt-get install npm -y && \
     npm install npm -g && \
-    npm install bower gulp -g
-    
-RUN "ln -s /usr/bin/nodejs /usr/bin/node"     
+    npm install bower gulp -g 
 
 VOLUME /opt/buildagent/work
 VOLUME /opt/buildagent/logs
