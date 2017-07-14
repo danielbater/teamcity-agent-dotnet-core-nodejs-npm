@@ -25,7 +25,8 @@ RUN apt-get install dotnet-dev-1.0.4 -y
 RUN apt-get install mono-devel mono-xbuild libmono-addins-* -y 
     
 # intall nodejs
-RUN apt-get install nodejs -y
+RUN apt-get install nodejs -y && \
+    apt-get install nodejs-legacy -y
 
 # add node symlink 
 # RUN ln -s /usr/bin/env/nodejs /usr/bin/env/node    
