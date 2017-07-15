@@ -26,16 +26,16 @@ RUN apt-get install mono-devel mono-xbuild libmono-addins-* -y
     
 # intall nodejs
 RUN apt-get install nodejs -y && \
-    apt-get install nodejs-legacy -y
-
-# add node symlink 
-# RUN ln -s /usr/bin/env/nodejs /usr/bin/env/node    
+    apt-get install nodejs-legacy -y 
     
 # install web tools which are required for "dotnet publish" command
+# install webpack and karma required for viewer applications
 RUN apt-get install npm -y && \
     npm install npm -g && \
-    npm install bower gulp -g 
-
+    npm install bower gulp -g  && \
+    npm install webpack -g && \
+    npm install karma -g
+    
 VOLUME /opt/buildagent/work
 VOLUME /opt/buildagent/logs
 VOLUME /data/teamcity_agent/conf
