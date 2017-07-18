@@ -34,7 +34,8 @@ RUN apt-get install npm -y && \
     npm install npm -g && \
     npm install bower gulp -g  && \
     npm install webpack -g && \
-    npm install karma -g
+    npm install karma -g && \
+    npm install tslint -g
     
 VOLUME /opt/buildagent/work
 VOLUME /opt/buildagent/logs
