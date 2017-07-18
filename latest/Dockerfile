@@ -51,17 +51,15 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt.asc | sha256sum -c - \
   && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
-    
-# install web tools which are required for "dotnet publish" command
-# install webpack and karma required for viewer applications
-RUN apt-get install npm -y && \
-    npm install npm -g && \
-    npm install bower gulp -g  && \
-    npm install webpack -g && \
-    npm install karma -g && \
-    npm install tslint -g && \
-    npm install "@angular/cli" -g 
-    
+  && npm install npm -g \
+  && npm install bower -g \
+  && npm install gulp -g \
+  && npm install webpack -g \
+  && npm install karma -g \
+  && npm install tslint -g \
+  && npm install "@angular/cli" -g \ 
+  && npm cache clear
+        
 VOLUME /opt/buildagent/work
 VOLUME /opt/buildagent/logs
 VOLUME /data/teamcity_agent/conf
