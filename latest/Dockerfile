@@ -50,14 +50,14 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && gpg --verify SHASUMS256.txt.asc \
   && grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt.asc | sha256sum -c - \
   && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
-  && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
+  && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc \
   && npm install npm -g \
   && npm install bower -g \
   && npm install gulp -g \
   && npm install webpack -g \
   && npm install karma -g \
   && npm install tslint -g \
-  && npm install "@angular/cli" -g \ 
+  && npm install @angular/cli -g \ 
   && npm cache clear
         
 VOLUME /opt/buildagent/work
