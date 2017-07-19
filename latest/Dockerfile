@@ -1,5 +1,5 @@
 FROM jetbrains/teamcity-agent
-LABEL maintainer "Jacek Kleczkowski <jacek@ksoft.biz>"
+LABEL maintainer "Daniel Bater <daniel@bater.co>"
 
 # image is based on Ubuntu 15 - fix for .NET Core installation
 RUN apt-get install wget -y && \
@@ -25,8 +25,8 @@ RUN apt-get install dotnet-dev-1.0.4 -y
 RUN apt-get install mono-devel mono-xbuild libmono-addins-* -y 
 
 # Install Node.js from the Debian-based distributions repository
-RUN apt-get install --yes curl
-RUN curl --silent --location https://deb.nodesource.com/setup_6.x | sudo bash -
+RUN apt-get install -y curl
+RUN curl --silent --location https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
 RUN apt-get install -y nodejs-legacy
