@@ -23,10 +23,13 @@ RUN apt-get install dotnet-dev-1.0.4 -y
 
 # install mono-devel
 RUN apt-get install mono-devel mono-xbuild libmono-addins-* -y 
-    
-# intall nodejs
-RUN apt-get install nodejs -y && \
-    apt-get install nodejs-legacy -y 
+
+# Install Node.js from the Debian-based distributions repository
+RUN apt-get install --yes curl
+RUN curl --silent --location https://deb.nodesource.com/setup_6.x | sudo bash -
+RUN apt-get install -y nodejs
+RUN apt-get install -y build-essential
+RUN apt-get install -y nodejs-legacy
     
 # install web tools which are required for "dotnet publish" command
 # install webpack and karma required for viewer applications
@@ -36,7 +39,8 @@ RUN apt-get install npm -y && \
     npm install webpack -g && \
     npm install karma -g && \
     npm install tslint -g && \
-    npm install angular-cli -g
+    npm install angular-cli -g && \
+    npm install @angular/cli -g
         
 VOLUME /opt/buildagent/work
 VOLUME /opt/buildagent/logs
