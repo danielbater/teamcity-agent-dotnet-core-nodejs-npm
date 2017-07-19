@@ -40,7 +40,7 @@ RUN apt-get install npm -y && \
     npm install karma -g && \
     npm install tslint -g && \
     npm install angular-cli -g && \
-    npm install @angular/cli -g
+    npm cache clean
         
 VOLUME /opt/buildagent/work
 VOLUME /opt/buildagent/logs
