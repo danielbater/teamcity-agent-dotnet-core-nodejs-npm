@@ -38,9 +38,9 @@ RUN apt-get install npm -y && \
     npm install bower gulp -g  && \
     npm install webpack -g && \
     npm install karma -g && \
-    npm install tslint -g && \
-    npm install angular-cli -g && \
-    npm cache clean
+    npm install tslint -g    
+    
+RUN npm install "angular-cli" -g
         
 VOLUME /opt/buildagent/work
 VOLUME /opt/buildagent/logs
