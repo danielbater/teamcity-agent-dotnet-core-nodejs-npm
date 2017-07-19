@@ -29,7 +29,7 @@ RUN apt-get install -y curl
 RUN curl --silent --location https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
-RUN apt-get install -y nodejs-legacy
+# RUN apt-get install -y nodejs-legacy
     
 # install web tools which are required for "dotnet publish" command
 # install webpack and karma required for viewer applications
