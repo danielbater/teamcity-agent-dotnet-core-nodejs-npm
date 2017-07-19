@@ -34,8 +34,8 @@ RUN apt-get install -y build-essential
 # install web tools which are required for "dotnet publish" command
 # install webpack, karma etc. required for viewer applications
 RUN apt-get install npm -y && \
-  npm install npm -g && \u
-  npm install bower gulp karma webpack tslint webpack @angular/cli -g
+  npm install npm -g && \
+  npm install bower gulp karma tslint webpack @angular/cli -g
         
 VOLUME /opt/buildagent/work
 VOLUME /opt/buildagent/logs
