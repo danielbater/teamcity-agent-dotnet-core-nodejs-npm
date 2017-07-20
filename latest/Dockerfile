@@ -50,12 +50,12 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
   && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
-  && ln -s /usr/local/bin/node /usr/local/bin/nodejs
+  && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
+  && npm install npm@latest -g
     
 # install web tools which are required for "dotnet publish" command
 # install webpack, karma etc. required for viewer applications
-RUN npm install npm -g && \
-  npm install bower gulp karma tslint webpack @angular/cli -g
+RUN npm install bower gulp karma tslint webpack @angular/cli -g
         
 VOLUME /opt/buildagent/work
 VOLUME /opt/buildagent/logs
