@@ -32,4 +32,4 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
     
 # install web tools which are required for "dotnet publish" command
 # install webpack, karma etc. required for viewer applications
-RUN npm install bower gulp -g --silent --progress=false
+RUN npm install bower gulp webpack -g --silent --progress=false
