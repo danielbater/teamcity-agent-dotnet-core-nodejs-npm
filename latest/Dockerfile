@@ -1,9 +1,6 @@
 FROM jetbrains/teamcity-agent
 LABEL maintainer "Daniel Bater <daniel@bater.co>"
 
-RUN groupadd --gid 1000 node \
-  && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
-
 # image is based on Ubuntu 15 - fix for .NET Core installation
 RUN apt-get install wget -y && \
     wget http://launchpadlibrarian.net/201330288/libicu52_52.1-8_amd64.deb && \
