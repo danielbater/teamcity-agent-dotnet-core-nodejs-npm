@@ -22,7 +22,7 @@ RUN set -ex \
     gpg --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ; \
   done
 
-ENV NODE_VERSION 10.7.0
+ENV NODE_VERSION 11.1.0
 
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
@@ -45,4 +45,4 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
     
 # install web tools which are required for "dotnet publish" command
 # install webpack, karma etc. required for viewer applications
-RUN npm install bower gulp webpack grunt-cli angular-cli -g --silent --progress=false
+RUN npm install angular-cli -g --silent --progress=false
